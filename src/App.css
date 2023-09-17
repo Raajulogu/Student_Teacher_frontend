@@ -26,17 +26,17 @@ body{
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   margin-top:70px;
 }
-.addstudent,.addteacher{
+.addstudent{
   background-color: rgba(50, 199, 249, 0.966);
   border-radius: 5px;
   font-size: 15px;
 }
-.editstudent,.editteacher{
+.editstudent{
   background-color: rgba(50, 199, 249, 0.966);
   border-radius: 5px;
   font-size: 15px;
 }
-.deletestudent,.deleteteacher{
+.deletestudent{
   margin-left:30px;
   background-color: red;
   border-radius: 5px;

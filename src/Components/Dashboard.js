@@ -5,7 +5,7 @@ function Dashboard(){
     return(
         <Base 
         title={"Welcome to the Dashboard"}
-        content={"Teachers and Students list available here"}
+        content={"Students list available here"}
         >
         </Base>
     );

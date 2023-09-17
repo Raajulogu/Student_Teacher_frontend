@@ -8,7 +8,6 @@ function Base({title,content,children}){
             <div className="nav_bar">
                 <button id="nav" onClick={()=>history.push("/dashboard")} >Dashboard</button>
                 <button id="nav" onClick={()=>history.push("/student_list")} >Students List</button>
-                <button id="nav" onClick={()=>history.push("/teacher_list")} >Teachers List</button>
             </div>
 
             <div className="title">

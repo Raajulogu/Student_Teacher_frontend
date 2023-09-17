@@ -6,12 +6,19 @@ import { useHistory } from 'react-router-dom';
 function Edit({state,setstate}){
     let history=useHistory()
     let {id}=useParams();
-    let updatestudent=state[id];
+    let updatestudent;
     let [name,setname]=useState("");
     let [batch,setbatch]=useState("");
     let [gender,setgender]=useState("");
     let [qualification,setqualification]=useState("");
-
+    
+    
+    for(var i=0;i<state.length;i++){
+        if(state[i]._id===id){
+            updatestudent=state[i];
+            break;
+        }
+    }
     useEffect(()=>{
         setname(updatestudent.name)
         setbatch(updatestudent.batch)
@@ -20,12 +27,13 @@ function Edit({state,setstate}){
     },[updatestudent])
     async function update(){
         let obj={
+            _id:id,
             name,
             batch,
             gender,
             qualification
         };
-        let response = await fetch(`https://644b33c017e2663b9deab958.mockapi.io/users/${updatestudent.id}`, {
+        let response = await fetch(`https://student-teacher-backend.vercel.app/api/user/editstudent`, {
       method:"PUT",
       body:JSON.stringify(obj),
       headers:{
@@ -33,8 +41,14 @@ function Edit({state,setstate}){
       }
      })
 
-     let data = await response.json()
-        state[id]=data;
+     await response.json()
+
+     for(var i=0;i<state.length;i++){
+        if(state[i]._id===id){
+            state[i]=obj;
+            break;
+        }
+    }
         setstate([...state])
         history.push("/student_list")
     }

@@ -80,7 +80,6 @@ const Login = () => {
               :""
             }
             <br/>
-            <a href="/reset" id="forgot">forgot password ?</a>
             <br/>
             <div>
             <div

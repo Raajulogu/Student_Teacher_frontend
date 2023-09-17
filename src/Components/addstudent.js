@@ -29,15 +29,17 @@ function Addstudent({state,setstate}){
 
     async function add(obj){
 
-        let response = await fetch("https://644b33c017e2663b9deab958.mockapi.io/users", {
+        let response = await fetch("https://student-teacher-backend.vercel.app/api/user/addstudent", {
         method:"POST",
         body:JSON.stringify(obj),
         headers :{
             "Content-Type":"application/json"
         },
         })
-        let data = await response.json()
-        setstate([...state,data])
+        await response.json()
+        setstate([...state,obj])
+
+        console.log(state)
         history.push("/student_list")
     }
     return(
